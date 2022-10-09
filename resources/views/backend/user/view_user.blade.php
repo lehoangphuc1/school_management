@@ -3,7 +3,7 @@
 <section class="section">
     <div class="card">
         <div class="card-header">
-            User List
+            Danh sách người dùng
             <a href="{{ route('user.add') }}" style="float: right" class="btn btn-primary">Thêm người dùng</a>
         </div>
    

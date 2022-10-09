@@ -35,20 +35,13 @@
                 <li>
                     <a href="{{ route('user.view') }}">Danh sách người dùng</a>
                 </li>
-                
-                <li>
-                    <a href="auth-register.html">Sửa thông tin người dùng</a>
-                </li>
             </ul>
         </li>
         <li class="sidebar-item  has-sub {{ ($prefix == '/profiles')?'active':'' }}">
-
             <a href="#" class='sidebar-link'>
                 <i data-feather="user" width="20"></i> 
                 <span>Quản lý thông tin cá nhân</span>
             </a>
-
-            
             <ul class="submenu ">
                 
                 <li>
@@ -57,6 +50,27 @@
                 
                 <li>
                     <a href="{{ route('user.changePasswordGet') }}">Thay đổi mật khẩu</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidebar-item  has-sub {{ ($prefix == '/setups')?'active':'' }}">
+            <a href="#" class='sidebar-link'>
+                <i data-feather="user" width="20"></i> 
+                <span>Quản lý lớp học</span>
+            </a>
+            <ul class="submenu ">
+                
+                <li>
+                    <a href="{{ route('student.class.view') }}">Danh sách lớp</a>
+                </li>
+                <li>
+                    <a href="{{ route('student.year.view') }}">Năm học</a>
+                    <a href="{{ route('student.group.view') }}">Group</a>
+                    <a href="{{ route('student.shift.view') }}">Ca học</a>
+                    <a href="{{ route('fee.category.view') }}">Các khoản phí</a>
+                    <a href="{{ route('fee.amount.view') }}">Tổng khoản thu</a>
+                    <a href="{{ route('exam.type.view') }}">Kỳ thi</a>
+                    <a href="{{ route('school.subject.view') }}">Môn học</a>
                 </li>
             </ul>
         </li>
