@@ -55,7 +55,7 @@ class FeeAmountController extends Controller
                 'message' => 'Bạn vui lòng chọn ít nhất 1 lớp',
                 'alert-type' => 'error'
             );
-            return redirect()->route('fee.amount.view')->with($notification);
+            return redirect()->route('fee.amount.edit')->with($notification);
         } else {
             $countClass = count($rq->class_id);
             FeeCategoryAmount::where('fee_category_id', $fee_category_id)->delete();

@@ -12,7 +12,8 @@ class UserController extends Controller
     public function UserView()
     {
         // $data = User::all();
-        $data['allData'] = User::all();
+        // $data['allData'] = User::all();
+        $data['allData'] = User::where('usertype', 'Admin')->get();
         return view('backend.user.view_user', $data);
     }
     public function UserAdd(Request $rq)
@@ -24,8 +25,6 @@ class UserController extends Controller
         $rq->validate([
             'name' => 'required|max:255',
             'email' => 'required|unique:users',
-            'password' =>  'required|min:6|max:255',
-            'usertype' => 'required|max:255'
         ]);
         // $user = new User([
         //     'name' => $rq->get('name'),
@@ -34,10 +33,13 @@ class UserController extends Controller
         //     'email' => $rq->get('email')
         // ]);
         $user = new User();
+        $code = rand(0000, 9999);
+        $user->usertype = 'Admin';
+        $user->role = $rq->role;
         $user->name = $rq->name;
-        $user->password = Hash::make($rq->password);
         $user->email = $rq->email;
-        $user->usertype = $rq->usertype;
+        $user->password = bcrypt($code);
+        $user->code = $code;
         $user->save();
         // add toastr message
         $notification = array(
@@ -57,12 +59,11 @@ class UserController extends Controller
         $rq->validate([
             'name' => 'required|max:255',
             'email' => 'required|email',
-            'usertype' => 'required|max:255'
         ]);
         $user = User::find($id);
         $user->name = $rq->name;
         $user->email = $rq->email;
-        $user->usertype = $rq->usertype;
+        $user->role = $rq->role;
         $user->save();
         $notification = array(
             'message' => 'Sửa thông tin người dùng thành công',

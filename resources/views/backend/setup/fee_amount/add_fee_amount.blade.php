@@ -16,7 +16,7 @@
                 </ul>
             </div>
         @endif
-        <form class="form form-vertical" method="post" action="{{ route('fee.amount.store') }}">
+        <form class="form form-vertical" method="post" action="{{ route('fee.category.store') }}">
          @csrf   
         <div class="form-body">
             <div class="row">
@@ -24,8 +24,8 @@
             <div class="col-12">
                 <label for="email-id-icon">Fee Category</label>
                 <div class="input-group mb-3">
-                    <select name="fee_category_id" class="form-select" id="inputGroupSelect01">
-                        <option selected value="">Lựa chọn danh mục chi phí...</option>
+                    <select name="fee_category_id[]" class="form-select" id="inputGroupSelect01">
+                        <option selected value="">Select role...</option>
                         @foreach ($fee_categories as $category )
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
@@ -36,7 +36,7 @@
                 <label for="email-id-icon">Lớp học</label>
                 <div class="input-group mb-3">
                     <select name="class_id[]" class="form-select" id="inputGroupSelect01">
-                        <option selected value="">Lựa chọn lớp học...</option>
+                        <option selected value="">Select role...</option>
                         @foreach ($classes as $class )
                         <option value="{{ $class->id }}">{{ $class->name }}</option>
                         @endforeach
@@ -50,7 +50,7 @@
                     <div class="row">
                     <div class=" col-md-10 position-relative" style="width: 70%">
                         <input type="text" name="amount[]" class="form-control" placeholder="Nhập vào tổng khoản phí" id="first-name-icon">
-                        <div class="form-control-icon" style="left: 10px">
+                        <div class="form-control-icon" style="lleft: 10px">
                             <i data-feather="clipboard"></i>
                         </div>
                     </div>

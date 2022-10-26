@@ -46,15 +46,15 @@
                 <div class="form-group has-icon-left">
                 <label for="email-id-icon">Loại account</label>
                 <div class="input-group mb-3">
-                    <select name="usertype" class="form-select" id="inputGroupSelect01">
+                    <select name="role" class="form-select" id="inputGroupSelect01">
                         {{-- cach1 --}}
                         {{-- <option @if(old('usertype',$user->usertype) == 'User') selected @endif> User 
                         </option> 
                         <option @if(old('usertype',$user->usertype) == 'Admin') selected @endif> Admin 
                         </option> --}} 
                         {{-- cach2 --}}
-                        <option value="Admin" {{ $user->usertype == "Admin" ? "selected" : "" }}>Admin</option>
-                        <option value="User" {{ $user->usertype == "User" ? "selected" : "" }}>User</option>
+                        <option value="Admin" {{ $user->role == "Admin" ? "selected" : "" }}>Admin</option>
+                        <option value="Operator" {{ $user->role == "Operator" ? "selected" : "" }}>Operator</option>
                     </select>
                 </div>
             </div>

@@ -13,9 +13,10 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tên</th>
                         <th>Loại tài khoản</th>
+                        <th>Tên</th>
                         <th>Địa chỉ mail</th>
+                        <th>Code</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
@@ -23,9 +24,10 @@
                     @foreach ($allData as $key => $user )
                     <tr>
                         <td>{{ $key+1 }}</td>
+                        <td>{{ $user->role}}</td>
                         <td>{{ $user->name}}</td>
-                        <td>{{ $user->usertype}}</td>
                         <td>{{ $user->email}}</td>
+                        <td>{{ $user->code}}</td>
                         <td>
                             <a href="{{ route('user.edit',$user->id) }}" class="btn btn-info">Sửa</a>
                             {{-- <a href="{{ route('user.delete',$user->id) }}" class="btn btn-danger">Xóa</a> --}}

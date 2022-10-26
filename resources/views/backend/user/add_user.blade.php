@@ -45,14 +45,14 @@
             <div class="col-12">
                 <label for="email-id-icon">USER ROLE</label>
                 <div class="input-group mb-3">
-                    <select name="usertype" class="form-select" id="inputGroupSelect01">
+                    <select name="role" id="role" class="form-select" id="inputGroupSelect01">
                         <option selected value="">Select role...</option>
                         <option value="Admin">Admin</option>
-                        <option value="User">User</option>
+                        <option value="Operator">Operator</option>
                     </select>
                 </div>
             </div>
-            <div class="col-12">
+            {{-- <div class="col-12">
                 <div class="form-group has-icon-left">
                     <label for="password-id-icon">Mật Khẩu</label>
                     <div class="position-relative">
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-12 d-flex justify-content-end">
                 <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
             </div>

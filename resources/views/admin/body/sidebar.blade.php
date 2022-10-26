@@ -22,6 +22,7 @@
 
             
         </li>
+        @if(Auth::user()->role == 'Admin')
         <li class="sidebar-item  has-sub {{ ($prefix == '/users')?'active':'' }}">
 
             <a href="#" class='sidebar-link'>
@@ -37,6 +38,7 @@
                 </li>
             </ul>
         </li>
+        @endif
         <li class="sidebar-item  has-sub {{ ($prefix == '/profiles')?'active':'' }}">
             <a href="#" class='sidebar-link'>
                 <i data-feather="user" width="20"></i> 
@@ -71,9 +73,28 @@
                     <a href="{{ route('fee.amount.view') }}">Tổng khoản thu</a>
                     <a href="{{ route('exam.type.view') }}">Kỳ thi</a>
                     <a href="{{ route('school.subject.view') }}">Môn học</a>
+                    <a href="{{ route('assign.subject.view') }}">Kết quả môn học</a>
                 </li>
             </ul>
         </li>
+
+
+        <li class="sidebar-item  has-sub {{ ($prefix == '/students')?'active':'' }}">
+            <a href="#" class='sidebar-link'>
+                <i data-feather="user" width="20"></i> 
+                <span>Quản lý học sinh</span>
+            </a>
+            <ul class="submenu ">
+                
+                <li>
+                    <a href="{{ route('student.registration.view') }}">Đăng ký học sinh</a>
+                </li>
+                {{-- <li>
+                    <a href="{{ route('student.year.view') }}">Năm học</a>
+                </li> --}}
+            </ul>
+        </li>
+
         <li class="sidebar-item  has-sub">
 
             <a href="#" class='sidebar-link'>
