@@ -11,6 +11,7 @@ use App\Models\StudentShift;
 use App\Models\StudentYear;
 use App\Models\StudentClass;
 use DB;
+use PDF;
 
 class StudentRegController extends Controller
 {
@@ -137,9 +138,16 @@ class StudentRegController extends Controller
             $assign_student->save();
         });
         $notification = array(
-            'message' => 'Thêm user thành công',
+            'message' => 'Cập nhật thông tin user thành công',
             'alert-type' => 'success'
         );
         return redirect()->route('student.registration.view')->with($notification);
+    }
+    public function StudentRegisterDetail($student_id)
+    {
+        $data['details'] = AssignStudent::with(['student'])->where('student_id', $student_id)->first();
+        $pdf = PDF::loadView('backend.student.student_reg.student_details_pdf', $data);
+        // $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('document.pdf');
     }
 }

@@ -74,7 +74,7 @@
                         </td>
                         <td>
                             <a href="{{ route('student.registration.edit',$value->student_id) }}" class="btn btn-info">Sửa</a>
-                            <a class="btn btn-danger" id="delete" href="{{ route('student.registration.delete',$value->student_id) }}"><i class="fa fa-trash"></i>Xóa</a>
+                            <a class="btn btn-primary" target="_blank" id="detail" href="{{ route('student.registration.detail',$value->student_id) }}"><i class="fa fa-info"></i>Chi tiết</a>
                         </td>
                     </tr>
                     @endforeach
@@ -109,7 +109,7 @@
                         </td>
                         <td>
                             <a href="{{ route('student.registration.edit',$value->student_id) }}" class="btn btn-info">Sửa</a>
-                            <a class="btn btn-danger" id="delete" href="{{ route('student.registration.delete',$value->student_id) }}"><i class="fa fa-trash"></i>Xóa</a>
+                            <a class="btn btn-info" id="detail" target="_blank" href="{{ route('student.registration.detail',$value->student_id) }}"><i class="fa fa-trash"></i>Chi tiết</a>
                         </td>
                     </tr>
                     @endforeach
